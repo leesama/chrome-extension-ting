@@ -1,27 +1,29 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
+import { useLayoutEffect } from 'react';
 import './Newtab.css';
-import './Newtab.scss';
+import render from './render';
 
 const Newtab = () => {
+  useLayoutEffect(() => {
+    render();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Newtab/Newtab.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-        <h6>The color of this paragraph is defined using SASS.</h6>
-      </header>
-    </div>
+    <>
+      <canvas
+        id="c"
+        style={{ position: 'absolute', zIndex: -1, textAlign: 'center' }}
+      ></canvas>
+      <div className="middle">
+        <h1 className="label">Every Day About You</h1>
+        <div className="search">
+          <input id="input" type="text" />
+          <button className="baidu" id="baidu">
+            百度一下
+          </button>
+        </div>
+        <h1 className="label" id="time"></h1>
+      </div>
+    </>
   );
 };
 
